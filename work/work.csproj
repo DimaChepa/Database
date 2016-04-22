@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BCA96D0-7359-439B-86A4-E246D069CEE1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>work</RootNamespace>
+    <AssemblyName>work</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime, Version=2.7.7.1, Culture=neutral, PublicKeyToken=0f493c87b190d7e9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr2.Runtime.2.7.7.02\lib\antlr.runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AsyncBridge, Version=0.1.1.0, Culture=neutral, PublicKeyToken=37dbcba04d38308f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AsyncBridge.JetBrains.0.1.1.0\lib\net40-Client\AsyncBridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.DevExpress.2.0.20150224.0\lib\Net\DevExpress.Data.v7.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.DevExpress.2.0.20150224.0\lib\Net\DevExpress.Utils.v7.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.DevExpress.2.0.20150224.0\lib\Net\DevExpress.XtraEditors.v7.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v7.1, Version=7.1.3.0, Culture=neutral, PublicKeyToken=ac81f19954537d54, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.DevExpress.2.0.20150224.0\lib\Net\DevExpress.XtraTreeList.v7.1.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=25313d96c538ed3d, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.JetBrains.Stripped.0.86.20150204.1\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=10.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.10.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Deployment.Compression, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.Microsoft.Deployment.Compression.Cab.2.0.20140304.0\lib\Microsoft.Deployment.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Deployment.Compression.Cab, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.Microsoft.Deployment.Compression.Cab.2.0.20140304.0\lib\Microsoft.Deployment.Compression.Cab.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Deployment.WindowsInstaller, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.Microsoft.Deployment.WindowsInstaller.2.0.20140821.0\lib\Microsoft.Deployment.WindowsInstaller.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Shell.Interop, Version=7.1.40304.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\JetBrains.Platform.Lib.VisualStudio.AnyVs.ShellInterop.PrivateBuild.2.0.20140304.0\lib\Microsoft.VisualStudio.Shell.Interop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Windows7APICodePack.JetBrains.Stripped.1.1.20150225.0\lib\Net\Microsoft.WindowsAPICodePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Windows7APICodePack.JetBrains.Stripped.1.1.20150225.0\lib\Net\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Posix, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Mono.Posix.0.1\lib\net40\Mono.Posix.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft35.Json.7.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.8.60717.93, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Core.2.8.6\lib\net40-Client\NuGet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NVelocity, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NVelocity.1.0.3\lib\NVelocity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sprache, Version=2.0.0.0, Culture=neutral, PublicKeyToken=23dafc55df9bd3a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sprache.JetBrains.2.0.0.44\lib\portable-net4+netcore45+win8+wp8+sl5+MonoAndroid1+MonoTouch1\Sprache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Interactivity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.System.Windows.Interactivity.2.0.20140318.0\lib\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vestris.ResourceLib, Version=1.4.33.0, Culture=neutral, PublicKeyToken=ec632d8ba5e5750d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vestris.ResourceLib.JetBrains.1.4.20150303.0\lib\Net\Vestris.ResourceLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WpfContrib, Version=1.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Platform.Lib.WpfContrib.2.0.20150225.0\lib\Net\WpfContrib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataSetCheck.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCheck.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCheckProdact.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCheckProdact.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFuelState.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFuelState.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetNDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetNDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetProduct.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProduct.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSalary.cs">
+      <DependentUpon>DataSetSalary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSalary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSalary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSalePdoductDay.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSalePdoductDay.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSaleProductMonth.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSaleProductMonth.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSaleProductWeek.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSaleProductWeek.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSellFuel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSellFuel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSellFuelMonth.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSellFuelMonth.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSellFuelWeek.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSellFuelWeek.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSellFuelYear.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSellFuelYear.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTax.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTax.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetViewWork.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetViewWork.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1ReportSellFuelMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1ReportSellFuelMonth.Designer.cs">
+      <DependentUpon>Form1ReportSellFuelMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddEmploy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddEmploy.Designer.cs">
+      <DependentUpon>FormAddEmploy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddEquipment.Designer.cs">
+      <DependentUpon>FormAddEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddNewPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddNewPosition.Designer.cs">
+      <DependentUpon>FormAddNewPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProducts.Designer.cs">
+      <DependentUpon>FormAddProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProvider.Designer.cs">
+      <DependentUpon>FormAddProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddSalary.Designer.cs">
+      <DependentUpon>FormAddSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuyFuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuyFuel.Designer.cs">
+      <DependentUpon>FormBuyFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuyProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuyProduct.Designer.cs">
+      <DependentUpon>FormBuyProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCancelFuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCancelFuel.Designer.cs">
+      <DependentUpon>FormCancelFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCheckProdact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheckProdact.Designer.cs">
+      <DependentUpon>FormCheckProdact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnection.Designer.cs">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormControlFuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormControlFuel.Designer.cs">
+      <DependentUpon>FormControlFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCustomer.Designer.cs">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeletePosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeletePosition.Designer.cs">
+      <DependentUpon>FormDeletePosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteProvider.Designer.cs">
+      <DependentUpon>FormDeleteProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeleteWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeleteWorker.Designer.cs">
+      <DependentUpon>FormDeleteWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExpert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExpert.Designer.cs">
+      <DependentUpon>FormExpert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNDSFuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNDSFuel.Designer.cs">
+      <DependentUpon>FormNDSFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrintCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintCheck.Designer.cs">
+      <DependentUpon>FormPrintCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRepordSellFuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRepordSellFuel.Designer.cs">
+      <DependentUpon>FormRepordSellFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportSellFuelWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportSellFuelWeek.Designer.cs">
+      <DependentUpon>FormReportSellFuelWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportSellProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportSellProduct.Designer.cs">
+      <DependentUpon>FormReportSellProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalaryReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalaryReport.Designer.cs">
+      <DependentUpon>FormSalaryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSaleProductMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSaleProductMonth.Designer.cs">
+      <DependentUpon>FormSaleProductMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSaleProductWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSaleProductWeek.Designer.cs">
+      <DependentUpon>FormSaleProductWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSellFuel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSellFuel.Designer.cs">
+      <DependentUpon>FormSellFuel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSellFuelYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSellFuelYear.Designer.cs">
+      <DependentUpon>FormSellFuelYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewEquipment.Designer.cs">
+      <DependentUpon>FormViewEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewNDFL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewNDFL.Designer.cs">
+      <DependentUpon>FormViewNDFL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewProduct.Designer.cs">
+      <DependentUpon>FormViewProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormViewWorkers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormViewWorkers.Designer.cs">
+      <DependentUpon>FormViewWorkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OilStationDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OilStationDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OilStationDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OilStationDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewSaleProductsDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSaleProductsDay.Designer.cs">
+      <DependentUpon>ViewSaleProductsDay.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1ReportSellFuelMonth.resx">
+      <DependentUpon>Form1ReportSellFuelMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddEmploy.resx">
+      <DependentUpon>FormAddEmploy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddEquipment.resx">
+      <DependentUpon>FormAddEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddNewPosition.resx">
+      <DependentUpon>FormAddNewPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddProducts.resx">
+      <DependentUpon>FormAddProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddProvider.resx">
+      <DependentUpon>FormAddProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddSalary.resx">
+      <DependentUpon>FormAddSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuyFuel.resx">
+      <DependentUpon>FormBuyFuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuyProduct.resx">
+      <DependentUpon>FormBuyProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCancelFuel.resx">
+      <DependentUpon>FormCancelFuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCheckProdact.resx">
+      <DependentUpon>FormCheckProdact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnection.resx">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormControlFuel.resx">
+      <DependentUpon>FormControlFuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCustomer.resx">
+      <DependentUpon>FormCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeletePosition.resx">
+      <DependentUpon>FormDeletePosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteProvider.resx">
+      <DependentUpon>FormDeleteProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeleteWorker.resx">
+      <DependentUpon>FormDeleteWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExpert.resx">
+      <DependentUpon>FormExpert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNDSFuel.resx">
+      <DependentUpon>FormNDSFuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintCheck.resx">
+      <DependentUpon>FormPrintCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRepordSellFuel.resx">
+      <DependentUpon>FormRepordSellFuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportSellFuelWeek.resx">
+      <DependentUpon>FormReportSellFuelWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportSellProduct.resx">
+      <DependentUpon>FormReportSellProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalaryReport.resx">
+      <DependentUpon>FormSalaryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaleProductMonth.resx">
+      <DependentUpon>FormSaleProductMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaleProductWeek.resx">
+      <DependentUpon>FormSaleProductWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSellFuel.resx">
+      <DependentUpon>FormSellFuel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSellFuelYear.resx">
+      <DependentUpon>FormSellFuelYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewEquipment.resx">
+      <DependentUpon>FormViewEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewNDFL.resx">
+      <DependentUpon>FormViewNDFL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewProduct.resx">
+      <DependentUpon>FormViewProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormViewWorkers.resx">
+      <DependentUpon>FormViewWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report10.rdlc" />
+    <EmbeddedResource Include="Report11.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
+    <EmbeddedResource Include="Report6.rdlc" />
+    <EmbeddedResource Include="Report7.rdlc" />
+    <EmbeddedResource Include="Report8.rdlc" />
+    <EmbeddedResource Include="Report9.rdlc" />
+    <EmbeddedResource Include="ReportQueryProduct.rdlc" />
+    <EmbeddedResource Include="ReportSaleProductDay.rdlc" />
+    <EmbeddedResource Include="ReportSaleProductMonth.rdlc" />
+    <EmbeddedResource Include="ReportSaleWeek.rdlc" />
+    <EmbeddedResource Include="ReportViewWorkers.rdlc" />
+    <EmbeddedResource Include="ViewSaleProductsDay.resx">
+      <DependentUpon>ViewSaleProductsDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSetCheck.xsc">
+      <DependentUpon>DataSetCheck.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCheck.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCheck.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCheck.xss">
+      <DependentUpon>DataSetCheck.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCheckProdact.xsc">
+      <DependentUpon>DataSetCheckProdact.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCheckProdact.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCheckProdact.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCheckProdact.xss">
+      <DependentUpon>DataSetCheckProdact.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFuelState.xsc">
+      <DependentUpon>DataSetFuelState.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFuelState.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFuelState.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetFuelState.xss">
+      <DependentUpon>DataSetFuelState.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetNDS.xsc">
+      <DependentUpon>DataSetNDS.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetNDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetNDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetNDS.xss">
+      <DependentUpon>DataSetNDS.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProduct.xsc">
+      <DependentUpon>DataSetProduct.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProduct.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProduct.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetProduct.xss">
+      <DependentUpon>DataSetProduct.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSalary.xsc">
+      <DependentUpon>DataSetSalary.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSalary.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSalary.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSalary.xss">
+      <DependentUpon>DataSetSalary.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSalePdoductDay.xsc">
+      <DependentUpon>DataSetSalePdoductDay.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSalePdoductDay.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSalePdoductDay.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSalePdoductDay.xss">
+      <DependentUpon>DataSetSalePdoductDay.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSaleProductMonth.xsc">
+      <DependentUpon>DataSetSaleProductMonth.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSaleProductMonth.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSaleProductMonth.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSaleProductMonth.xss">
+      <DependentUpon>DataSetSaleProductMonth.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSaleProductWeek.xsc">
+      <DependentUpon>DataSetSaleProductWeek.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSaleProductWeek.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSaleProductWeek.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSaleProductWeek.xss">
+      <DependentUpon>DataSetSaleProductWeek.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuel.xsc">
+      <DependentUpon>DataSetSellFuel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuel.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSellFuel.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSellFuel.xss">
+      <DependentUpon>DataSetSellFuel.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuelMonth.xsc">
+      <DependentUpon>DataSetSellFuelMonth.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuelMonth.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSellFuelMonth.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSellFuelMonth.xss">
+      <DependentUpon>DataSetSellFuelMonth.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuelWeek.xsc">
+      <DependentUpon>DataSetSellFuelWeek.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuelWeek.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSellFuelWeek.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSellFuelWeek.xss">
+      <DependentUpon>DataSetSellFuelWeek.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuelYear.xsc">
+      <DependentUpon>DataSetSellFuelYear.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSellFuelYear.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSellFuelYear.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSellFuelYear.xss">
+      <DependentUpon>DataSetSellFuelYear.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTax.xsc">
+      <DependentUpon>DataSetTax.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTax.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTax.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetTax.xss">
+      <DependentUpon>DataSetTax.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetViewWork.xsc">
+      <DependentUpon>DataSetViewWork.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetViewWork.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetViewWork.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetViewWork.xss">
+      <DependentUpon>DataSetViewWork.xsd</DependentUpon>
+    </None>
+    <None Include="OilStationDataSet.xsc">
+      <DependentUpon>OilStationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OilStationDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OilStationDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OilStationDataSet.xss">
+      <DependentUpon>OilStationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OilStationDataSet1.xsc">
+      <DependentUpon>OilStationDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OilStationDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OilStationDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OilStationDataSet1.xss">
+      <DependentUpon>OilStationDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Antlr2.Tools.2.7.6.4\build\Antlr2.Tools.targets" Condition="Exists('..\packages\Antlr2.Tools.2.7.6.4\build\Antlr2.Tools.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Antlr2.Tools.2.7.6.4\build\Antlr2.Tools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Antlr2.Tools.2.7.6.4\build\Antlr2.Tools.targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.2.0.20150812.0\build\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.2.0.20150812.0\build\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Core.Shell.104.0.20151218.121345\build\JetBrains.Platform.Core.Shell.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Core.Shell.104.0.20151218.121345\build\JetBrains.Platform.Core.Shell.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Core.Text.104.0.20151218.121627\build\JetBrains.Platform.Core.Text.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Core.Text.104.0.20151218.121627\build\JetBrains.Platform.Core.Text.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Core.Ide.104.0.20151218.121627\build\JetBrains.Platform.Core.Ide.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Core.Ide.104.0.20151218.121627\build\JetBrains.Platform.Core.Ide.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Installer.104.0.20151218.121627\build\JetBrains.Platform.Installer.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Installer.104.0.20151218.121627\build\JetBrains.Platform.Installer.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Interop.dotMemoryUnit.Interop.104.0.20151218.121627\build\JetBrains.Platform.Interop.dotMemoryUnit.Interop.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Interop.dotMemoryUnit.Interop.104.0.20151218.121627\build\JetBrains.Platform.Interop.dotMemoryUnit.Interop.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Symbols.104.0.20151218.121627\build\JetBrains.Platform.Symbols.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Symbols.104.0.20151218.121627\build\JetBrains.Platform.Symbols.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.Tests.Framework.104.0.20151218.121627\build\JetBrains.Platform.Tests.Framework.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.Tests.Framework.104.0.20151218.121627\build\JetBrains.Platform.Tests.Framework.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Platform.VisualStudio.104.0.20151218.121627\build\JetBrains.Platform.VisualStudio.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Platform.VisualStudio.104.0.20151218.121627\build\JetBrains.Platform.VisualStudio.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.Tasks.104.0.20151218.121922\build\JetBrains.Psi.Features.Tasks.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.Tasks.104.0.20151218.121922\build\JetBrains.Psi.Features.Tasks.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.Core.104.0.20151218.121922\build\JetBrains.Psi.Features.Core.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.Core.104.0.20151218.121922\build\JetBrains.Psi.Features.Core.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.UnitTesting.104.0.20151218.121922\build\JetBrains.Psi.Features.UnitTesting.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.UnitTesting.104.0.20151218.121922\build\JetBrains.Psi.Features.UnitTesting.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.src.104.0.20151218.121922\build\JetBrains.Psi.Features.src.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.src.104.0.20151218.121922\build\JetBrains.Psi.Features.src.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.test.Framework.104.0.20151218.121922\build\JetBrains.Psi.Features.test.Framework.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.test.Framework.104.0.20151218.121922\build\JetBrains.Psi.Features.test.Framework.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.VisualStudio.104.0.20151218.121922\build\JetBrains.Psi.Features.VisualStudio.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.VisualStudio.104.0.20151218.121922\build\JetBrains.Psi.Features.VisualStudio.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.SolutionBuilder.104.0.20151218.121922\build\JetBrains.Psi.Features.SolutionBuilder.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.SolutionBuilder.104.0.20151218.121922\build\JetBrains.Psi.Features.SolutionBuilder.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.Psi.Features.Cpp.src.104.0.20151218.123108\build\JetBrains.Psi.Features.Cpp.src.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.Psi.Features.Cpp.src.104.0.20151218.123108\build\JetBrains.Psi.Features.Cpp.src.Targets'))" />
+    <Error Condition="!Exists('..\packages\JetBrains.ReSharper.SDK.Internal.104.0.20151218.132857\build\JetBrains.ReSharper.SDK.Internal.Targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\JetBrains.ReSharper.SDK.Internal.104.0.20151218.132857\build\JetBrains.ReSharper.SDK.Internal.Targets'))" />
+  </Target>
+  <Import Project="..\packages\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.2.0.20150812.0\build\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.Targets" Condition="Exists('..\packages\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.2.0.20150812.0\build\JetBrains.Build.Platform.Tasks.ThemedIconsPacker.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Core.Shell.104.0.20151218.121345\build\JetBrains.Platform.Core.Shell.Targets" Condition="Exists('..\packages\JetBrains.Platform.Core.Shell.104.0.20151218.121345\build\JetBrains.Platform.Core.Shell.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Core.Text.104.0.20151218.121627\build\JetBrains.Platform.Core.Text.Targets" Condition="Exists('..\packages\JetBrains.Platform.Core.Text.104.0.20151218.121627\build\JetBrains.Platform.Core.Text.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Core.Ide.104.0.20151218.121627\build\JetBrains.Platform.Core.Ide.Targets" Condition="Exists('..\packages\JetBrains.Platform.Core.Ide.104.0.20151218.121627\build\JetBrains.Platform.Core.Ide.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Installer.104.0.20151218.121627\build\JetBrains.Platform.Installer.Targets" Condition="Exists('..\packages\JetBrains.Platform.Installer.104.0.20151218.121627\build\JetBrains.Platform.Installer.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Interop.dotMemoryUnit.Interop.104.0.20151218.121627\build\JetBrains.Platform.Interop.dotMemoryUnit.Interop.Targets" Condition="Exists('..\packages\JetBrains.Platform.Interop.dotMemoryUnit.Interop.104.0.20151218.121627\build\JetBrains.Platform.Interop.dotMemoryUnit.Interop.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Symbols.104.0.20151218.121627\build\JetBrains.Platform.Symbols.Targets" Condition="Exists('..\packages\JetBrains.Platform.Symbols.104.0.20151218.121627\build\JetBrains.Platform.Symbols.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.Tests.Framework.104.0.20151218.121627\build\JetBrains.Platform.Tests.Framework.Targets" Condition="Exists('..\packages\JetBrains.Platform.Tests.Framework.104.0.20151218.121627\build\JetBrains.Platform.Tests.Framework.Targets')" />
+  <Import Project="..\packages\JetBrains.Platform.VisualStudio.104.0.20151218.121627\build\JetBrains.Platform.VisualStudio.Targets" Condition="Exists('..\packages\JetBrains.Platform.VisualStudio.104.0.20151218.121627\build\JetBrains.Platform.VisualStudio.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.Tasks.104.0.20151218.121922\build\JetBrains.Psi.Features.Tasks.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.Tasks.104.0.20151218.121922\build\JetBrains.Psi.Features.Tasks.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.Core.104.0.20151218.121922\build\JetBrains.Psi.Features.Core.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.Core.104.0.20151218.121922\build\JetBrains.Psi.Features.Core.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.UnitTesting.104.0.20151218.121922\build\JetBrains.Psi.Features.UnitTesting.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.UnitTesting.104.0.20151218.121922\build\JetBrains.Psi.Features.UnitTesting.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.src.104.0.20151218.121922\build\JetBrains.Psi.Features.src.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.src.104.0.20151218.121922\build\JetBrains.Psi.Features.src.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.test.Framework.104.0.20151218.121922\build\JetBrains.Psi.Features.test.Framework.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.test.Framework.104.0.20151218.121922\build\JetBrains.Psi.Features.test.Framework.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.VisualStudio.104.0.20151218.121922\build\JetBrains.Psi.Features.VisualStudio.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.VisualStudio.104.0.20151218.121922\build\JetBrains.Psi.Features.VisualStudio.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.SolutionBuilder.104.0.20151218.121922\build\JetBrains.Psi.Features.SolutionBuilder.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.SolutionBuilder.104.0.20151218.121922\build\JetBrains.Psi.Features.SolutionBuilder.Targets')" />
+  <Import Project="..\packages\JetBrains.Psi.Features.Cpp.src.104.0.20151218.123108\build\JetBrains.Psi.Features.Cpp.src.Targets" Condition="Exists('..\packages\JetBrains.Psi.Features.Cpp.src.104.0.20151218.123108\build\JetBrains.Psi.Features.Cpp.src.Targets')" />
+  <Import Project="..\packages\JetBrains.ReSharper.SDK.Internal.104.0.20151218.132857\build\JetBrains.ReSharper.SDK.Internal.Targets" Condition="Exists('..\packages\JetBrains.ReSharper.SDK.Internal.104.0.20151218.132857\build\JetBrains.ReSharper.SDK.Internal.Targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
