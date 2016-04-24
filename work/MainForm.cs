@@ -221,5 +221,32 @@ namespace work
             FormNDSFuel form = new FormNDSFuel();
             form.ShowDialog();
         }
+
+        private void ликвидностьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string sql = string.Format("declare @Sum int "+
+"declare @SumBuy int "+
+"SELECT       @Sum = Sum(Selling_Client.Price_for_litr * Selling_Client.Volume) "+
+"FROM            Selling_Client "+
+
+"SELECT @SumBuy = Sum(Selling_Client.Volume * Provider.Purch_price) "+
+"FROM            Provider Inner JOIN "+
+"                         Selling_Client ON Provider.Code = Selling_Client.Name "+
+
+"declare @Total int "+
+"Select @Total = Sum(Purch_price * Volume) "+
+"from Provider "+
+
+
+
+"Select  @Sum - (@SumBuy + @Total) as Score");
+
+            SqlDataAdapter dAdapt = new SqlDataAdapter(sql, cnStr);
+            DataTable dt = new DataTable();
+            dAdapt.Fill(dt);
+            DataRow[] drs = dt.Select();
+
+            MessageBox.Show(drs[0]["Score"].ToString());
+        }
     }
 }

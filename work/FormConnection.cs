@@ -47,8 +47,8 @@ namespace work
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            try
-            { 
+           /* try
+            {       */
             //txtPassword.Text = GetMD5(txtLogin.Text);
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(txtPassword.Text));
@@ -62,12 +62,12 @@ namespace work
                 
                 state = drsUser[0]["Status"].ToString();
                 Connect();
-            }
+          /*  }
             
             catch (Exception ex)
             {
                 MessageBox.Show("Неверный логин или пароль");
-            }
+            }      */
         }
         public void Connect()
         {

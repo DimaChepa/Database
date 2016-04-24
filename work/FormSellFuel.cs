@@ -35,8 +35,8 @@ namespace work
         public string one;
         private void btnSell_Click(object sender, EventArgs e)
         {
-             try
-             {
+        /*     try
+             {     */
 
                 if (txtPrice_for_litr.Text.Contains(","))
                 {
@@ -47,6 +47,8 @@ namespace work
                 {
                     one = txtPrice_for_litr.Text;
                 }
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("Delete from Provider where Volume = '0'", cnStr);
+                sqlDataAdapter.Fill(new DataTable());
                 string[] Mas = System.Text.RegularExpressions.Regex.Split(txtSurname.Text, " ");
                 drs1 = this.oilstationDS.Tables["Employ"].Select(string.Format("Surname = '{0}' and Name = '{1}'", Mas[0], Mas[1]));
                 string code = drs1[0]["Code"].ToString();
@@ -54,17 +56,45 @@ namespace work
                 string sql = string.Format("Insert Into Selling_Client (Name, Volume, Price_for_litr, Surname_Customer, Selling_day) Values('{0}', '{1}', '{2}', '{3}', '{4}')", converttocode,txtVolume.Text, one,code, dateTimeSelling.Text );
                 dAdapt = new SqlDataAdapter(sql, cnStr);
                 dAdapt.Fill(oilstationDS, "Provider");
-                MessageBox.Show("Бензин продан");
-                SqlDataAdapter update = new SqlDataAdapter("UPDATE Provider SET Volume = Provider.Volume - Selling_Client.Volume FROM Provider INNER JOIN Selling_Client ON Provider.Code = Selling_Client.Name", cnStr);
-                update.Fill(oilstationDS, "Provider");
-                FormPrintCheck form = new FormPrintCheck();
-                form.ShowDialog();
+                string New_query_update = string.Format("declare @Vol int "+
+"select @Vol = Volume  from Selling_Client "+
+"where Code = (select Max(Code) from Selling_Client) "+
 
-            }
-            catch (Exception ex)
+"if @Vol > (select Max(Provider.Volume)  from Provider "+
+" INNER JOIN "+
+                         "Selling_Client ON Provider.Code = Selling_Client.Name) "+
+"delete from Selling_Client "+
+"where Code = (select Max(Code) from Selling_Client) "+
+"else update Provider set Volume = Provider.Volume - Selling_Client.Volume "+
+"FROM Provider INNER JOIN Selling_Client ON Provider.Code = Selling_Client.Name "+
+"where Selling_Client.Code = (SElect MAX(Code) from Selling_Client)");
+                SqlDataAdapter update = new SqlDataAdapter(New_query_update, cnStr);
+                DataTable updateData = new DataTable();
+        
+              
+                update.Fill(oilstationDS, "Provider");
+              
+                SqlDataAdapter dUpdateAdapt = new SqlDataAdapter("SElect Volume from Selling_Client where Code=(Select MAX(Code) from Selling_Client)", cnStr);
+                dUpdateAdapt.Fill(updateData);
+                DataRow[] drsupdate = updateData.Select();
+
+                if (drsupdate[0]["Volume"].ToString() == txtVolume.Text)
+                {
+                    MessageBox.Show("Бензин продан");
+                    FormPrintCheck form = new FormPrintCheck();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Бензина нет в таком количестве");
+                }
+
+            //}
+        /*    catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-            }
+                
+                MessageBox.Show("Невозможно продать бензин! Укажите корректные данные");
+            }         */
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

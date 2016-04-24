@@ -47,6 +47,9 @@
             this.остаткиБензинаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.налогиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.нДФЛToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пДВToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.бензинToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.товарToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.персоналToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проданныйТоварToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заДеньToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,9 +62,7 @@
             this.поставщикToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.списатьБензинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.пДВToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.бензинToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.товарToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ликвидностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,7 +152,8 @@
             this.налогиToolStripMenuItem,
             this.персоналToolStripMenuItem,
             this.проданныйТоварToolStripMenuItem,
-            this.самыйПопулярныйБензинToolStripMenuItem});
+            this.самыйПопулярныйБензинToolStripMenuItem,
+            this.ликвидностьToolStripMenuItem});
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
             this.отчетToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.отчетToolStripMenuItem.Text = "Отчет";
@@ -222,9 +224,31 @@
             // нДФЛToolStripMenuItem
             // 
             this.нДФЛToolStripMenuItem.Name = "нДФЛToolStripMenuItem";
-            this.нДФЛToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.нДФЛToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.нДФЛToolStripMenuItem.Text = "НДФЛ";
             this.нДФЛToolStripMenuItem.Click += new System.EventHandler(this.нДФЛToolStripMenuItem_Click);
+            // 
+            // пДВToolStripMenuItem
+            // 
+            this.пДВToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.бензинToolStripMenuItem1,
+            this.товарToolStripMenuItem});
+            this.пДВToolStripMenuItem.Name = "пДВToolStripMenuItem";
+            this.пДВToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.пДВToolStripMenuItem.Text = "ПДВ";
+            // 
+            // бензинToolStripMenuItem1
+            // 
+            this.бензинToolStripMenuItem1.Name = "бензинToolStripMenuItem1";
+            this.бензинToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
+            this.бензинToolStripMenuItem1.Text = "Бензин";
+            this.бензинToolStripMenuItem1.Click += new System.EventHandler(this.бензинToolStripMenuItem1_Click);
+            // 
+            // товарToolStripMenuItem
+            // 
+            this.товарToolStripMenuItem.Name = "товарToolStripMenuItem";
+            this.товарToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.товарToolStripMenuItem.Text = "Товар";
             // 
             // персоналToolStripMenuItem
             // 
@@ -247,21 +271,21 @@
             // заДеньToolStripMenuItem1
             // 
             this.заДеньToolStripMenuItem1.Name = "заДеньToolStripMenuItem1";
-            this.заДеньToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.заДеньToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.заДеньToolStripMenuItem1.Text = "За день";
             this.заДеньToolStripMenuItem1.Click += new System.EventHandler(this.заДеньToolStripMenuItem1_Click);
             // 
             // заНеделюToolStripMenuItem1
             // 
             this.заНеделюToolStripMenuItem1.Name = "заНеделюToolStripMenuItem1";
-            this.заНеделюToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.заНеделюToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.заНеделюToolStripMenuItem1.Text = "За неделю";
             this.заНеделюToolStripMenuItem1.Click += new System.EventHandler(this.заНеделюToolStripMenuItem1_Click);
             // 
             // заМесяцToolStripMenuItem1
             // 
             this.заМесяцToolStripMenuItem1.Name = "заМесяцToolStripMenuItem1";
-            this.заМесяцToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.заМесяцToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.заМесяцToolStripMenuItem1.Text = "За месяц";
             this.заМесяцToolStripMenuItem1.Click += new System.EventHandler(this.заМесяцToolStripMenuItem1_Click);
             // 
@@ -317,27 +341,12 @@
             this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
             this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.сменитьПользователяToolStripMenuItem_Click);
             // 
-            // пДВToolStripMenuItem
+            // ликвидностьToolStripMenuItem
             // 
-            this.пДВToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.бензинToolStripMenuItem1,
-            this.товарToolStripMenuItem});
-            this.пДВToolStripMenuItem.Name = "пДВToolStripMenuItem";
-            this.пДВToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.пДВToolStripMenuItem.Text = "ПДВ";
-            // 
-            // бензинToolStripMenuItem1
-            // 
-            this.бензинToolStripMenuItem1.Name = "бензинToolStripMenuItem1";
-            this.бензинToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.бензинToolStripMenuItem1.Text = "Бензин";
-            this.бензинToolStripMenuItem1.Click += new System.EventHandler(this.бензинToolStripMenuItem1_Click);
-            // 
-            // товарToolStripMenuItem
-            // 
-            this.товарToolStripMenuItem.Name = "товарToolStripMenuItem";
-            this.товарToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.товарToolStripMenuItem.Text = "Товар";
+            this.ликвидностьToolStripMenuItem.Name = "ликвидностьToolStripMenuItem";
+            this.ликвидностьToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.ликвидностьToolStripMenuItem.Text = "Ликвидность";
+            this.ликвидностьToolStripMenuItem.Click += new System.EventHandler(this.ликвидностьToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -392,5 +401,6 @@
         private System.Windows.Forms.ToolStripMenuItem пДВToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem бензинToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem товарToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ликвидностьToolStripMenuItem;
     }
 }
