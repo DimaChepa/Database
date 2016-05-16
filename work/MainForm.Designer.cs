@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.измененияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,13 +57,15 @@
             this.заНеделюToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.заМесяцToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.самыйПопулярныйБензинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ликвидностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вакансияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.поставщикToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.списатьБензинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ликвидностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnPopular = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +76,7 @@
             this.сменитьПользователяToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(999, 24);
+            this.MainMenu.Size = new System.Drawing.Size(957, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "Меню";
             // 
@@ -296,6 +299,13 @@
             this.самыйПопулярныйБензинToolStripMenuItem.Text = "Самый популярный бензин";
             this.самыйПопулярныйБензинToolStripMenuItem.Click += new System.EventHandler(this.самыйПопулярныйБензинToolStripMenuItem_Click);
             // 
+            // ликвидностьToolStripMenuItem
+            // 
+            this.ликвидностьToolStripMenuItem.Name = "ликвидностьToolStripMenuItem";
+            this.ликвидностьToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.ликвидностьToolStripMenuItem.Text = "Ликвидность";
+            this.ликвидностьToolStripMenuItem.Click += new System.EventHandler(this.ликвидностьToolStripMenuItem_Click);
+            // 
             // удалениеToolStripMenuItem
             // 
             this.удалениеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -341,18 +351,34 @@
             this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
             this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.сменитьПользователяToolStripMenuItem_Click);
             // 
-            // ликвидностьToolStripMenuItem
+            // button1
             // 
-            this.ликвидностьToolStripMenuItem.Name = "ликвидностьToolStripMenuItem";
-            this.ликвидностьToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
-            this.ликвидностьToolStripMenuItem.Text = "Ликвидность";
-            this.ликвидностьToolStripMenuItem.Click += new System.EventHandler(this.ликвидностьToolStripMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(12, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 35);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Посмотреть журнал";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnPopular
+            // 
+            this.btnPopular.Location = new System.Drawing.Point(12, 108);
+            this.btnPopular.Name = "btnPopular";
+            this.btnPopular.Size = new System.Drawing.Size(117, 35);
+            this.btnPopular.TabIndex = 2;
+            this.btnPopular.Text = "Самый популярный бензин";
+            this.btnPopular.UseVisualStyleBackColor = true;
+            this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 442);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(957, 472);
+            this.Controls.Add(this.btnPopular);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "MainForm";
@@ -402,5 +428,7 @@
         private System.Windows.Forms.ToolStripMenuItem бензинToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem товарToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ликвидностьToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPopular;
     }
 }

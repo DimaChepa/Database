@@ -41,7 +41,7 @@ namespace work
                 SqlDataAdapter update = new SqlDataAdapter("Select * from Employee_position", cnStr);
                 DataTable dt = new DataTable();
                 update.Fill(dt);
-                dataGridView1.DataSource = dt;
+                dataGridView1.DataSource = dt;              
                 MessageBox.Show("Должность сокращена");
                 
             }

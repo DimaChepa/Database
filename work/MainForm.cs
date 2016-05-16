@@ -224,29 +224,69 @@ namespace work
 
         private void ликвидностьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string sql = string.Format("declare @Sum int "+
-"declare @SumBuy int "+
-"SELECT       @Sum = Sum(Selling_Client.Price_for_litr * Selling_Client.Volume) "+
-"FROM            Selling_Client "+
+            string sql = string.Format("declare @Sum int " +
+"declare @SumBuy int " +
+"SELECT       @Sum = Sum(Selling_Client.Price_for_litr * Selling_Client.Volume*0.8) " +
+"FROM            Selling_Client " +
 
-"SELECT @SumBuy = Sum(Selling_Client.Volume * Provider.Purch_price) "+
-"FROM            Provider Inner JOIN "+
-"                         Selling_Client ON Provider.Code = Selling_Client.Name "+
+"SELECT @SumBuy = Sum(Selling_Client.Volume * Provider.Purch_price) " +
+"FROM            Provider Inner JOIN " +
+"                         Selling_Client ON Provider.Code = Selling_Client.Name " +
 
-"declare @Total int "+
-"Select @Total = Sum(Purch_price * Volume) "+
-"from Provider "+
+"declare @Total int " +
+"Select @Total = Sum(Purch_price * Volume) " +
+"from Provider " +
 
 
+"declare @SaleProd int " +
+"declare @SumBuyProd int " +
+"SELECT       @SaleProd = Sum(Store.Price * Store.Count * 0.8) " +
+"FROM            Store " +
 
-"Select  @Sum - (@SumBuy + @Total) as Score");
+"SELECT @SumBuyProd = Sum(Store.Count * Stock.Price) " +
+"FROM            Stock Inner JOIN  " +
+                         "Store ON Stock.Code = Store.Name  " +
+
+"declare @TotalProd int " +
+"Select @TotalProd = Sum(Total_Count * Price)  " +
+"from Stock    " +
+
+
+"Select  @Sum + @SaleProd - (@SumBuy + @Total + @TotalProd + @SumBuyProd) as Score");
 
             SqlDataAdapter dAdapt = new SqlDataAdapter(sql, cnStr);
             DataTable dt = new DataTable();
             dAdapt.Fill(dt);
             DataRow[] drs = dt.Select();
+            if (Convert.ToInt32(drs[0]["Score"].ToString()) < 0)
+            {
+                MessageBox.Show("Вы работаете с минусом: " + drs[0]["Score"].ToString());
+            }
+            else
+            {
+                MessageBox.Show("Вы работаете с плюсом: "+ drs[0]["Score"].ToString());
+            }
+        }
 
-            MessageBox.Show(drs[0]["Score"].ToString());
+        private void btnPopular_Click(object sender, EventArgs e)
+        {
+            string sql = string.Format("SELECT        SUM(Selling_Client.Volume) AS Expr1, Provider.Name_fuel " +
+"FROM            Provider INNER JOIN " +
+               "Selling_Client ON Provider.Code = Selling_Client.Name " +
+
+
+"GROUP BY Provider.Name_fuel " +
+"having sum(Selling_Client.Volume) >= All(select sum(Selling_Client.Volume) " +
+"FROM            Provider INNER JOIN " +
+               "Selling_Client ON Provider.Code = Selling_Client.Name " +
+
+               "GROUP BY Provider.Name_fuel)");
+            SqlDataAdapter dAdapt = new SqlDataAdapter(sql, cnStr);
+            DataTable dt = new DataTable();
+            dAdapt.Fill(dt);
+            DataRow[] drs = dt.Select();
+            string smth = string.Format("Количество проданного {0} бензина: {1} литра", drs[0]["Name_Fuel"].ToString(), drs[0]["Expr1"].ToString());
+            MessageBox.Show(smth);
         }
     }
 }

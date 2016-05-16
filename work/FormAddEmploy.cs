@@ -46,6 +46,7 @@ namespace work
                 string sql  =string.Format("Insert Into Employ (Login, Password, Surname, Name, Second_Name, Telephone, Position, Status) Values('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", txtAddLogin.Text, str.ToString(), txtAddSurname.Text, txtAddName.Text, txtAddSecond.Text, txtAddPhone.Text, converttocode, txtAddStatus.Text);
                 dAdapt = new SqlDataAdapter(sql, cnStr);
                 dAdapt.Fill(oilstationDS, "Employ");
+
                 MessageBox.Show("Сотрудник нанят");
             }
             catch (Exception ex)

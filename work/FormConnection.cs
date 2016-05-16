@@ -47,8 +47,8 @@ namespace work
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-           /* try
-            {       */
+            /*try
+            {*/       
             //txtPassword.Text = GetMD5(txtLogin.Text);
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(txtPassword.Text));
@@ -59,15 +59,20 @@ namespace work
                 str.Append(result[i].ToString("x2"));
             }
             drsUser = this.oilstationDS.Tables["Employ"].Select(string.Format("Login = '{0}' and Password = '{1}'", txtLogin.Text, str.ToString()));
-                
-                state = drsUser[0]["Status"].ToString();
+            string insert = string.Format("INSERT INTO Journal " +
+                    "(Employ, Name_query, Name_Table, Date_Execute) " +
+"VALUES('{0}','Вход в базу','Employ','{1}')", drsUser[0]["Login"].ToString(), DateTime.Now.ToShortDateString());
+            SqlDataAdapter dAda = new SqlDataAdapter(insert, cnStr);
+            dAda.Fill(new DataTable());
+            state = drsUser[0]["Status"].ToString();
                 Connect();
-          /*  }
+                
+       /*     }
             
             catch (Exception ex)
             {
                 MessageBox.Show("Неверный логин или пароль");
-            }      */
+            }     */
         }
         public void Connect()
         {

@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSetViewWork = new work.DataSetViewWork();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetViewWork = new work.DataSetViewWork();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DataTable1TableAdapter = new work.DataSetViewWorkTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetViewWork)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetViewWork)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DataSetViewWork;
+            // 
+            // DataSetViewWork
+            // 
+            this.DataSetViewWork.DataSetName = "DataSetViewWork";
+            this.DataSetViewWork.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,16 +60,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(1060, 442);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DataSetViewWork
-            // 
-            this.DataSetViewWork.DataSetName = "DataSetViewWork";
-            this.DataSetViewWork.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSetViewWork;
-            // 
             // DataTable1TableAdapter
             // 
             this.DataTable1TableAdapter.ClearBeforeFill = true;
@@ -71,10 +71,10 @@
             this.ClientSize = new System.Drawing.Size(1060, 442);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FormViewWorkers";
-            this.Text = "FormViewWorkers";
+            this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.FormViewWorkers_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetViewWork)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetViewWork)).EndInit();
             this.ResumeLayout(false);
 
         }

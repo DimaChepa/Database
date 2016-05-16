@@ -597,6 +597,7 @@
     <EmbeddedResource Include="ViewSaleProductsDay.resx">
       <DependentUpon>ViewSaleProductsDay.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataSetCheck.xsc">
       <DependentUpon>DataSetCheck.xsd</DependentUpon>
     </None>

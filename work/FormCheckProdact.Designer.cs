@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSetCheckProdact = new work.DataSetCheckProdact();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSetCheckProdact = new work.DataSetCheckProdact();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DataTable1TableAdapter = new work.DataSetCheckProdactTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetCheckProdact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetCheckProdact)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.DataSetCheckProdact;
+            // 
+            // DataSetCheckProdact
+            // 
+            this.DataSetCheckProdact.DataSetName = "DataSetCheckProdact";
+            this.DataSetCheckProdact.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,16 +60,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(791, 421);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DataSetCheckProdact
-            // 
-            this.DataSetCheckProdact.DataSetName = "DataSetCheckProdact";
-            this.DataSetCheckProdact.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSetCheckProdact;
-            // 
             // DataTable1TableAdapter
             // 
             this.DataTable1TableAdapter.ClearBeforeFill = true;
@@ -71,10 +71,10 @@
             this.ClientSize = new System.Drawing.Size(791, 421);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FormCheckProdact";
-            this.Text = "FormCheckProdact";
+            this.Text = "Продуктовый чек";
             this.Load += new System.EventHandler(this.FormCheckProdact_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSetCheckProdact)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSetCheckProdact)).EndInit();
             this.ResumeLayout(false);
 
         }

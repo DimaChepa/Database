@@ -45,21 +45,45 @@ namespace work
                 string sql = string.Format("Insert Into Store (Name, Surname, Count, Price, Date) Values('{0}', '{1}', '{2}', '{3}', '{4}')", converttocode, code, txtCount.Text, txtPrice.Text, CalendarSell.Text);
                 SqlDataAdapter dAdapt = new SqlDataAdapter(sql, cnStr);
                 dAdapt.Fill(oilstationDS, "Store");
-              
-                SqlDataAdapter update = new SqlDataAdapter("UPDATE Stock SET Total_Count = Stock.Total_count - Store.Count FROM Stock INNER JOIN Store ON Stock.Code = Store.Name", cnStr);
-                update.Fill(oilstationDS, "Provider");
-          
-                MessageBox.Show("Продукт продан");
-                FormCheckProdact form = new FormCheckProdact();
-                form.ShowDialog();
+
+                string New_query_update = string.Format("declare @Vol int "+
+"select @Vol = Count  from Store "+
+"where Code = (select Max(Code) from Store) "+
+
+"if @Vol > (select Max(Stock.Total_Count)  from Stock "+
+"INNER JOIN "+
+                        " Store ON Stock.Code = Store.Name) "+
+"delete from Store "+
+"where Code = (select Max(Code) from Store) "+ 
+"else update Stock set Total_Count = Stock.Total_Count - Store.Count "+
+"FROM Stock INNER JOIN Store ON Stock.Code = Store.Name "+
+"where Store.Code = (SElect MAX(Code) from Store)");
+                SqlDataAdapter update = new SqlDataAdapter(New_query_update, cnStr);
+                DataTable updateData = new DataTable();
+
+
+                update.Fill(oilstationDS, "Stock");
+
+                SqlDataAdapter dUpdateAdapt = new SqlDataAdapter("SElect Count from Store where Code=(Select MAX(Code) from Store)", cnStr);
+                dUpdateAdapt.Fill(updateData);
+                DataRow[] drsupdate = updateData.Select();
+
+                if (drsupdate[0]["Count"].ToString() == txtCount.Text)
+                {
+                    MessageBox.Show("Товар продан");
+                    FormCheckProdact form = new FormCheckProdact();
+                    form.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Товара нет в таком количестве");
+                }
             }
             catch (Exception ex)
             {
 
-                string delete = string.Format("Delete from Store where Count = '{0}'", txtCount.Text);
-                SqlDataAdapter deleteAdapter = new SqlDataAdapter(delete, cnStr);
-                deleteAdapter.Fill(new DataTable());
-                MessageBox.Show("Товара нет в таком количестве");
+                
+                MessageBox.Show("Невозможно продать товар");
             }
         }
 
