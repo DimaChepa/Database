@@ -64,8 +64,9 @@
             this.поставщикToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.списатьБензинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сменитьПользователяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGetJournal = new System.Windows.Forms.Button();
             this.btnPopular = new System.Windows.Forms.Button();
+            this.btnTestSystem = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -351,14 +352,15 @@
             this.сменитьПользователяToolStripMenuItem.Text = "Сменить пользователя";
             this.сменитьПользователяToolStripMenuItem.Click += new System.EventHandler(this.сменитьПользователяToolStripMenuItem_Click);
             // 
-            // button1
+            // btnGetJournal
             // 
-            this.button1.Location = new System.Drawing.Point(12, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 35);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Посмотреть журнал";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGetJournal.Location = new System.Drawing.Point(12, 52);
+            this.btnGetJournal.Name = "btnGetJournal";
+            this.btnGetJournal.Size = new System.Drawing.Size(117, 35);
+            this.btnGetJournal.TabIndex = 1;
+            this.btnGetJournal.Text = "Посмотреть журнал";
+            this.btnGetJournal.UseVisualStyleBackColor = true;
+            this.btnGetJournal.Click += new System.EventHandler(this.btnGetJournal_Click);
             // 
             // btnPopular
             // 
@@ -370,6 +372,16 @@
             this.btnPopular.UseVisualStyleBackColor = true;
             this.btnPopular.Click += new System.EventHandler(this.btnPopular_Click);
             // 
+            // btnTestSystem
+            // 
+            this.btnTestSystem.Location = new System.Drawing.Point(13, 165);
+            this.btnTestSystem.Name = "btnTestSystem";
+            this.btnTestSystem.Size = new System.Drawing.Size(115, 38);
+            this.btnTestSystem.TabIndex = 3;
+            this.btnTestSystem.Text = "Протестировать систему";
+            this.btnTestSystem.UseVisualStyleBackColor = true;
+            this.btnTestSystem.Click += new System.EventHandler(this.btnTestSystem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,8 +389,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(957, 472);
+            this.Controls.Add(this.btnTestSystem);
             this.Controls.Add(this.btnPopular);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGetJournal);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "MainForm";
@@ -428,7 +441,8 @@
         private System.Windows.Forms.ToolStripMenuItem бензинToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem товарToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ликвидностьToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGetJournal;
         private System.Windows.Forms.Button btnPopular;
+        private System.Windows.Forms.Button btnTestSystem;
     }
 }

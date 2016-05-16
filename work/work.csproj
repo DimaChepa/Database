@@ -249,6 +249,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetTax.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetViewJournal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetViewJournal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetViewWork.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -362,6 +367,12 @@
     <Compile Include="FormExpert.Designer.cs">
       <DependentUpon>FormExpert.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormJournal.Designer.cs">
+      <DependentUpon>FormJournal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNDSFuel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +432,12 @@
     </Compile>
     <Compile Include="FormSellFuelYear.Designer.cs">
       <DependentUpon>FormSellFuelYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestSystem.Designer.cs">
+      <DependentUpon>FormTestSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="FormViewEquipment.cs">
       <SubType>Form</SubType>
@@ -524,6 +541,9 @@
     <EmbeddedResource Include="FormExpert.resx">
       <DependentUpon>FormExpert.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormJournal.resx">
+      <DependentUpon>FormJournal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNDSFuel.resx">
       <DependentUpon>FormNDSFuel.cs</DependentUpon>
     </EmbeddedResource>
@@ -553,6 +573,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSellFuelYear.resx">
       <DependentUpon>FormSellFuelYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestSystem.resx">
+      <DependentUpon>FormTestSystem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormViewEquipment.resx">
       <DependentUpon>FormViewEquipment.cs</DependentUpon>
@@ -593,6 +616,7 @@
     <EmbeddedResource Include="ReportSaleProductDay.rdlc" />
     <EmbeddedResource Include="ReportSaleProductMonth.rdlc" />
     <EmbeddedResource Include="ReportSaleWeek.rdlc" />
+    <EmbeddedResource Include="ReportViewJornal.rdlc" />
     <EmbeddedResource Include="ReportViewWorkers.rdlc" />
     <EmbeddedResource Include="ViewSaleProductsDay.resx">
       <DependentUpon>ViewSaleProductsDay.cs</DependentUpon>
@@ -751,6 +775,17 @@
     </None>
     <None Include="DataSetTax.xss">
       <DependentUpon>DataSetTax.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetViewJournal.xsc">
+      <DependentUpon>DataSetViewJournal.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetViewJournal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetViewJournal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetViewJournal.xss">
+      <DependentUpon>DataSetViewJournal.xsd</DependentUpon>
     </None>
     <None Include="DataSetViewWork.xsc">
       <DependentUpon>DataSetViewWork.xsd</DependentUpon>

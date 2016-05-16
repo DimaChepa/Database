@@ -49,7 +49,8 @@ namespace work
         {
             /*try
             {*/       
-            //txtPassword.Text = GetMD5(txtLogin.Text);
+            //txtPassword.Text = GetMD5(txtLogin.Text); 
+            
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(txtPassword.Text));
             byte[] result = md5.Hash;

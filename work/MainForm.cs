@@ -288,5 +288,19 @@ namespace work
             string smth = string.Format("Количество проданного {0} бензина: {1} литра", drs[0]["Name_Fuel"].ToString(), drs[0]["Expr1"].ToString());
             MessageBox.Show(smth);
         }
+
+        private void btnTestSystem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormTestSystem form = new FormTestSystem();
+            form.ShowDialog();
+            this.Close();
+        }
+
+        private void btnGetJournal_Click(object sender, EventArgs e)
+        {
+            FormJournal form = new FormJournal();
+            form.ShowDialog();
+        }
     }
 }
